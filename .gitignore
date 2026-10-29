@@ -1,0 +1,4 @@
+# Collected dataset (internal JetBrains data, tens of GB): never commit.
+data/
+__pycache__/
+.venv/

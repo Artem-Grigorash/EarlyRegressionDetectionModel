@@ -1,0 +1,27 @@
+# Settings of the aggregator data collector (`python -m collector`).
+# Tokens are not stored here: see collector/config.py.
+
+[teamcity]
+url = "https://buildserver.labs.intellij.net"
+# Test occurrences per request; a composite aggregator build has ~36k of them.
+test_page_size = 10000
+
+[patronus]
+url = "https://patronus.labs.jb.gg"
+
+[git]
+remote = "ssh://git@git.jetbrains.team/ij/ultimate.git"
+
+[collect]
+# Safe-push checks whose attempts and test results are collected.
+checks = ["ijplatform_master_Idea_Tests_Aggregator"]
+# TeamCity keeps per-test results for ~12 days, so a run must look back at least that far
+# to pick up robots that finished since the previous run.
+lookback_days = 12
+workers = 6
+# Also collect aggregator runs on master: the baseline for "was it already broken".
+master_runs = true
+
+[paths]
+# Relative to this file.
+data = "../data"

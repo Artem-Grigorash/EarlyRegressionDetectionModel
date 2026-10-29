@@ -1,0 +1,2 @@
+# collect and diffs use only the standard library (Python 3.12+); normalize needs pyarrow.
+pyarrow>=17
